@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ItemHelper_Example' do
+  pod 'ItemHelper', :path => '../'
+
+  target 'ItemHelper_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
