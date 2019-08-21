@@ -6,3 +6,14 @@
 //
 
 import Foundation
+extension URLComponents {
+    public var itemMap: [String: String] {
+        get {
+            var parameter = [String: String]()
+            self.queryItems?.forEach({ (item) in
+                parameter[item.name] = item.value ?? ""
+            })
+            return parameter
+        }
+    }
+}

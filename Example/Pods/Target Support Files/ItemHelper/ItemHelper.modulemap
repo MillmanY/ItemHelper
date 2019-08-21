@@ -1,0 +1,6 @@
+framework module ItemHelper {
+  umbrella header "ItemHelper-umbrella.h"
+
+  export *
+  module * { export * }
+}

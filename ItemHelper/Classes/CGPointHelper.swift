@@ -6,3 +6,10 @@
 //
 
 import Foundation
+extension CGPoint {
+    public func distance(location: CGPoint) -> CGFloat {
+        let disX = location.x-self.x
+        let disY = location.y-self.y
+        return sqrt((disX*disX)+(disY*disY))
+    }
+}

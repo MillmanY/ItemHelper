@@ -1,0 +1,16 @@
+PODS:
+  - ItemHelper (0.1.0)
+
+DEPENDENCIES:
+  - ItemHelper (from `../`)
+
+EXTERNAL SOURCES:
+  ItemHelper:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ItemHelper: b5a77a529e23626c52a08331da089f9159f9c4df
+
+PODFILE CHECKSUM: 7160de8f0fc594942d7e019ec447c629f9f87c30
+
+COCOAPODS: 1.7.2

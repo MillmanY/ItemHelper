@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+extension Array {
+    subscript(safe idx: Int) -> Element? {
+        return indices ~= idx ? self[idx] : nil
+    }
+}
