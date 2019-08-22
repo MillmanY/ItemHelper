@@ -9,6 +9,12 @@ import Foundation
 
 // Qrcode
 extension String {
+    /**
+     ItemHelper Extension
+     ```
+     Qrcode String to image with size
+     ```
+     */
     public func qrCodeImage(size: CGSize) -> UIImage? {
         guard let img = self.qrCIImage, self.count > 0 else {
             return nil
@@ -20,7 +26,12 @@ extension String {
             by: CGAffineTransform(scaleX: scaleFactor, y: scaleFactor))
         return UIImage(ciImage: scaledImage, scale: UIScreen.main.scale, orientation: .down)
     }
-    
+    /**
+     ItemHelper Extension
+     ```
+     Qrcode String to image
+     ```
+     */
     public var qrCodeImage: UIImage? {
         get {
             guard let output = self.qrCIImage else {
@@ -50,11 +61,24 @@ extension String {
     func get(index: Int) -> String.Index {
         return self.index(startIndex, offsetBy: index)
     }
-
+    
+    
+    /**
+     ItemHelper Extension
+     ```
+     Get character index i
+     ```
+     */
     public subscript (i: Int) -> String {
         return self[i ..< i + 1]
     }
     
+    /**
+     ItemHelper Extension
+     ```
+     Get sub string
+     ```
+     */
     public subscript (safe range: CountableClosedRange<Int>) -> String {
         if range.lowerBound < 0 || range.upperBound >= self.count {
             return ""
@@ -62,13 +86,25 @@ extension String {
         return self[range.lowerBound..<range.upperBound+1]
     }
     
+    /**
+     ItemHelper Extension
+     ```
+     Get sub string
+     ```
+     */
     public subscript (r: Range<Int>) -> String {
         let start = self.get(index: r.lowerBound)
         let end = self.get(index: r.upperBound)
         return String(self[start..<end])
     }
     
-     public func subStrings(_ value: String) -> [NSRange] {
+    /**
+     ItemHelper Extension
+     ```
+     Get sub string
+     ```
+     */
+    public func subStrings(_ value: String) -> [NSRange] {
         var range = [NSRange]()
         var index = 0
         while index <= self.count {
@@ -84,3 +120,4 @@ extension String {
         return range
     }
 }
+

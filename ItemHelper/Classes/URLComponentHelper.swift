@@ -7,6 +7,12 @@
 
 import Foundation
 extension URLComponents {
+    /**
+     ItemHelper Extension
+     ```
+     URLComponents parameter
+     ```
+     */
     public var itemMap: [String: String] {
         get {
             var parameter = [String: String]()

@@ -8,6 +8,12 @@
 import Foundation
 
 extension Array {
+    /**
+     ItemHelper Extension
+     ```
+     get index element optional
+     ```
+     */
     subscript(safe idx: Int) -> Element? {
         return indices ~= idx ? self[idx] : nil
     }

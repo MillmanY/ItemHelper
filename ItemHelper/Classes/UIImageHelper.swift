@@ -6,19 +6,19 @@
 //
 
 import Foundation
-public class ImageHelper {
-    unowned let base: UIImage
-    public init(_ base: UIImage) {
-        self.base = base
-    }
-}
 
 //Mask
-extension ImageHelper {
-    func mask(color: UIColor) -> UIImage {
-        let maskImage = self.base.cgImage!
-        let width = self.base.size.width
-        let height = self.base.size.height
+extension UIImage {
+    /**
+     ItemHelper Extension
+     ```
+     Change image tint
+     ```
+     */
+    public func tint(color: UIColor) -> UIImage {
+        let maskImage = self.cgImage!
+        let width = self.size.width
+        let height = self.size.height
         let bounds = CGRect(x: 0, y: 0, width: width, height: height)
         
         let colorSpace = CGColorSpaceCreateDeviceRGB()
@@ -33,19 +33,25 @@ extension ImageHelper {
             let coloredImage = UIImage(cgImage: cgImage)
             return coloredImage
         } else {
-            return self.base
+            return self
         }
     }
 }
 
 //Crop
-extension ImageHelper {
+extension UIImage {
+    /**
+     ItemHelper Extension
+     ```
+     Crop Image on rect
+     ```
+     */
     public func crop(rect: CGRect) -> UIImage? {
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()
-        let drawRect = CGRect(x: -rect.origin.x, y: -rect.origin.y, width: self.base.size.width, height: self.base.size.height)
+        let drawRect = CGRect(x: -rect.origin.x, y: -rect.origin.y, width: self.size.width, height: self.size.height)
         context?.clip(to: CGRect(origin: .zero, size: rect.size))
-        self.base.draw(in: drawRect)
+        self.draw(in: drawRect)
         let sub = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return sub ?? nil
@@ -53,14 +59,26 @@ extension ImageHelper {
 }
 
 //Resize
-extension ImageHelper {
+extension UIImage {
+    /**
+     ItemHelper Extension
+     ```
+     Resize image with rate
+     ```
+     */
     public func resizeImage(ratio: CGFloat) -> UIImage {
-        let size = self.base.size
+        let size = self.size
         return self.resizeImage(targetSize: CGSize(width: size.width*ratio, height: size.height*ratio))
     }
     
+    /**
+     ItemHelper Extension
+     ```
+     Resize image with size
+     ```
+     */
     public func resizeImage(targetSize: CGSize) -> UIImage {
-        let size = self.base.size
+        let size = self.size
         
         let widthRatio  = targetSize.width  / size.width
         let heightRatio = targetSize.height / size.height
@@ -78,7 +96,7 @@ extension ImageHelper {
         
         // Actually do the resizing to the rect using the ImageContext stuff
         UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
-        self.base.draw(in: rect)
+        self.draw(in: rect)
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return newImage!
@@ -86,9 +104,15 @@ extension ImageHelper {
 }
 
 //QrCode
-extension ImageHelper {
+extension UIImage {
+    /**
+     ItemHelper Extension
+     ```
+     Qrcode Image to string
+     ```
+     */
     public func qrCodeValue() -> String {
-        if let ciImage = CIImage(image: self.base) {
+        if let ciImage = CIImage(image: self) {
             var options: [String: Any]
             let context = CIContext()
             options = [CIDetectorAccuracy: CIDetectorAccuracyHigh]

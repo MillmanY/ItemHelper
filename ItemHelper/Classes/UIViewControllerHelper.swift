@@ -48,7 +48,14 @@ extension UIViewController {
         }
     }
     
-    static var current: UIViewController {
+    
+    /**
+        ItemHelper Extension
+        ```
+        Find current ViewController on window
+        ```
+        */
+    static public var current: UIViewController {
         get {
             let vc:UIViewController! = UIApplication.shared.keyWindow?.rootViewController
             return UIViewController.findBestViewController(vc)

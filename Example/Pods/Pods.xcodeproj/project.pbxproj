@@ -16,6 +16,7 @@
 		2763BD64230BA585001ABDCC /* NavigationItemHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2763BD63230BA585001ABDCC /* NavigationItemHelper.swift */; };
 		2763BD66230BA59E001ABDCC /* UIViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2763BD65230BA59E001ABDCC /* UIViewHelper.swift */; };
 		2763BD6C230BA810001ABDCC /* DrawLineLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2763BD6B230BA810001ABDCC /* DrawLineLayer.swift */; };
+		27C5D60A230E628700A241AE /* UIColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C5D609230E628700A241AE /* UIColorHelper.swift */; };
 		27FF12E3230CF3050039FEF6 /* ArrayHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FF12E2230CF3050039FEF6 /* ArrayHelper.swift */; };
 		27FF12E6230CFD6E0039FEF6 /* CGPointHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FF12E5230CFD6E0039FEF6 /* CGPointHelper.swift */; };
 		27FF12E9230CFED20039FEF6 /* URLComponentHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FF12E8230CFED20039FEF6 /* URLComponentHelper.swift */; };
@@ -61,6 +62,7 @@
 		2763BD63230BA585001ABDCC /* NavigationItemHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationItemHelper.swift; path = ItemHelper/Classes/NavigationItemHelper.swift; sourceTree = "<group>"; };
 		2763BD65230BA59E001ABDCC /* UIViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewHelper.swift; path = ItemHelper/Classes/UIViewHelper.swift; sourceTree = "<group>"; };
 		2763BD6B230BA810001ABDCC /* DrawLineLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DrawLineLayer.swift; path = ItemHelper/Classes/DrawLineLayer.swift; sourceTree = "<group>"; };
+		27C5D609230E628700A241AE /* UIColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIColorHelper.swift; path = ItemHelper/Classes/UIColorHelper.swift; sourceTree = "<group>"; };
 		27FF12E2230CF3050039FEF6 /* ArrayHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArrayHelper.swift; path = ItemHelper/Classes/ArrayHelper.swift; sourceTree = "<group>"; };
 		27FF12E5230CFD6E0039FEF6 /* CGPointHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CGPointHelper.swift; path = ItemHelper/Classes/CGPointHelper.swift; sourceTree = "<group>"; };
 		27FF12E8230CFED20039FEF6 /* URLComponentHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = URLComponentHelper.swift; path = ItemHelper/Classes/URLComponentHelper.swift; sourceTree = "<group>"; };
@@ -191,6 +193,14 @@
 			name = UIView;
 			sourceTree = "<group>";
 		};
+		27C5D608230E626700A241AE /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				27C5D609230E628700A241AE /* UIColorHelper.swift */,
+			);
+			name = UIColor;
+			sourceTree = "<group>";
+		};
 		27FF12E1230CF2920039FEF6 /* Array */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				2763BD61230BA57A001ABDCC /* Define.swift */,
+				27C5D608230E626700A241AE /* UIColor */,
 				27FF12F0230D09A70039FEF6 /* UILabel */,
 				27FF12ED230D00220039FEF6 /* Codable */,
 				27FF12EA230CFF0C0039FEF6 /* UIViewController */,
@@ -515,6 +526,7 @@
 				27FF12F2230D0A740039FEF6 /* UILabelHelper.swift in Sources */,
 				27FF12EF230D003B0039FEF6 /* CodableHelper.swift in Sources */,
 				2763BD6C230BA810001ABDCC /* DrawLineLayer.swift in Sources */,
+				27C5D60A230E628700A241AE /* UIColorHelper.swift in Sources */,
 				2763BD66230BA59E001ABDCC /* UIViewHelper.swift in Sources */,
 				39278631AFCDC2D36C3DBEBCA753D486 /* ItemHelper-dummy.m in Sources */,
 				27325FDC230BAB8100E348C8 /* UIView+Nib.swift in Sources */,

@@ -8,6 +8,9 @@
 import UIKit
 private var navigationItemHelperKey = "NavigationItemHelper+Key"
 extension UINavigationItem {
+    /**
+     ItemHelper Extension
+     */
     public var itemHelper: NavigationItemHelper {
         get {
             guard let att = objc_getAssociatedObject(self, &navigationItemHelperKey) as? NavigationItemHelper else {
@@ -22,6 +25,9 @@ extension UINavigationItem {
 
 private var uiViewHelperKey = "uiViewHelper+Key"
 extension UIView {
+    /**
+     ItemHelper Extension
+     */
     public var viewHelper: UIViewHelper {
         get {
             guard let att = objc_getAssociatedObject(self, &uiViewHelperKey) as? UIViewHelper else {
@@ -34,22 +40,13 @@ extension UIView {
     }
 }
 
-private var uiImageHelperKey = "uiImageHelper+Key"
-extension UIImage {
-    public var imageHelper: ImageHelper {
-        get {
-            guard let att = objc_getAssociatedObject(self, &uiImageHelperKey) as? ImageHelper else {
-                let a = ImageHelper(self)
-                objc_setAssociatedObject(self, &uiImageHelperKey, a, .OBJC_ASSOCIATION_RETAIN)
-                return a
-            }
-            return att
-        }
-    }
-}
+
 
 private var uiLabelHelperKey = "uiLabelHelper+Key"
 extension UILabel {
+    /**
+     ItemHelper Extension
+     */
     public var labelHelper: LabelHelper {
         get {
             guard let att = objc_getAssociatedObject(self, &uiLabelHelperKey) as? LabelHelper else {

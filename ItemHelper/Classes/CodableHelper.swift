@@ -19,6 +19,12 @@ extension Dictionary {
     }
 }
 extension Encodable {
+    /**
+     ItemHelper Extension
+     ```
+     Model to json
+     ```
+     */
     public var info: [String: Any] {
         get {
             guard let data = try? JSONEncoder().encode(self),
