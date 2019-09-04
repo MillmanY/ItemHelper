@@ -15,26 +15,18 @@ extension UIImage {
      Change image tint
      ```
      */
-    public func tint(color: UIColor) -> UIImage {
-        let maskImage = self.cgImage!
-        let width = self.size.width
-        let height = self.size.height
-        let bounds = CGRect(x: 0, y: 0, width: width, height: height)
-        
-        let colorSpace = CGColorSpaceCreateDeviceRGB()
-        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)
-        let context = CGContext(data: nil, width: Int(width), height: Int(height), bitsPerComponent: 8, bytesPerRow: 0, space: colorSpace, bitmapInfo: bitmapInfo.rawValue)!
-        
-        context.clip(to: bounds, mask: maskImage)
-        context.setFillColor(color.cgColor)
-        context.fill(bounds)
-        
-        if let cgImage = context.makeImage() {
-            let coloredImage = UIImage(cgImage: cgImage)
-            return coloredImage
-        } else {
-            return self
-        }
+    
+    public func mask(color: UIColor) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
+        let context = UIGraphicsGetCurrentContext()!
+        let rect = CGRect(origin: .zero, size: size)
+        color.setFill()
+        self.draw(in: rect)
+        context.setBlendMode(.sourceIn)
+        context.fill(rect)
+        let resultImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return resultImage
     }
 }
 
@@ -141,5 +133,19 @@ extension UIImage {
         let scaledImage = img.transformed(
             by: CGAffineTransform(scaleX: scaleFactor, y: scaleFactor))
         return (UIImage(ciImage: scaledImage, scale: UIScreen.main.scale, orientation: .down), value)
+    }
+    
+    static func gradient(frame: CGRect, colors: [UIColor]) -> UIImage? {
+        let l = CAGradientLayer()
+        l.frame = frame
+        l.colors = colors.map({ $0.cgColor })
+        
+        var image: UIImage? = nil
+        UIGraphicsBeginImageContext(l.frame.size)
+        l.render(in: UIGraphicsGetCurrentContext()!)
+        image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+        
     }
 }
